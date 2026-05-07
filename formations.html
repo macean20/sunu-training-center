@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formations · SUNU Training Center</title>
+<meta name="description" content="GRC, CRM, Service Client, Management — toutes les formations SUNU Training Center.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E5AAE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="vitrine/css/style.css">
+<style>
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.filter-pill{padding:8px 18px;border-radius:99px;border:1.5px solid var(--border);background:var(--white);font-size:13.5px;color:var(--text-soft);cursor:pointer;transition:all 0.2s}
+.filter-pill:hover,.filter-pill.active{background:var(--orange);color:white;border-color:var(--orange)}
+.formations-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px}
+.prog-include{list-style:none;margin:12px 0}
+.prog-include li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--text-soft);padding:5px 0;border-bottom:1px solid var(--border-soft)}
+.prog-include li:last-child{border:none}
+.prog-include li i{color:var(--success);font-size:11px;margin-top:3px;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo-sunu.png" alt="SUNU logo" width="42" height="42"><div><div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div><div class="nav-logo-sub">Excellence in Training</div></div></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="a-propos.html" data-i18n="nav_about">À Propos</a></li>
+    <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+    <li><a href="formations.html" data-i18n="nav_formations" class="active">Formations</a></li>
+    <li><a href="etudiants.html" data-i18n="nav_students">Étudiants</a></li>
+    <li><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a></li>
+    <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button>
+    <a href="app.html" class="btn-nav-login" id="navLoginBtn" data-i18n="nav_login">Se connecter</a>
+    <a href="app.html" class="btn-nav-cta" id="navCtaBtn" data-i18n="nav_signup">Créer un compte</a>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" data-i18n="nav_home">Accueil</a><a href="a-propos.html" data-i18n="nav_about">À Propos</a><a href="services.html" data-i18n="nav_services">Services</a><a href="formations.html" data-i18n="nav_formations">Formations</a><a href="etudiants.html" data-i18n="nav_students">Étudiants</a><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a><a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <div class="mobile-actions"><a href="app.html" class="btn btn-outline" data-i18n="nav_login">Se connecter</a><a href="app.html" class="btn btn-primary" data-i18n="nav_signup">Créer un compte</a><button class="lang-btn" id="mobileLangBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button></div>
+</div>
+
+<div class="page-wrapper">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-label"><i class="fa-solid fa-graduation-cap"></i> <span data-i18n="formations_page_tag">Nos programmes</span></div>
+      <h1 class="page-hero-title" data-i18n="formations_page_title">Formations SUNU</h1>
+      <p class="page-hero-sub" data-i18n="formations_page_sub">Des formations certifiantes en GRC, adaptées au marché africain.</p>
+      <div class="breadcrumb"><a href="index.html" data-i18n="nav_home">Accueil</a><span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span><span data-i18n="nav_formations">Formations</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-pill active" data-cat="all" onclick="filterFormations('all')">Tout voir</button>
+        <button class="filter-pill" data-cat="grc" onclick="filterFormations('grc')">GRC</button>
+        <button class="filter-pill" data-cat="crm" onclick="filterFormations('crm')">CRM & Digital</button>
+        <button class="filter-pill" data-cat="service" onclick="filterFormations('service')">Service Client</button>
+        <button class="filter-pill" data-cat="management" onclick="filterFormations('management')">Management</button>
+      </div>
+
+      <div class="formations-grid" id="formationsGrid">
+
+        <div class="formation-card fade-in" data-cat="grc">
+          <div class="formation-img">
+            <i class="fa-solid fa-headset"></i>
+            <div class="formation-img-label">
+              <span class="formation-tag"><span data-i18n="level_beginner">Débutant</span></span>
+              <span class="formation-tag"><span data-i18n="f1_dur">4 semaines</span></span>
+            </div>
+          </div>
+          <div class="formation-body">
+            <div class="formation-title" data-i18n="f1_title">Gestion de la Relation Client (GRC)</div>
+            <div class="formation-desc" data-i18n="f1_desc">Maîtrisez les techniques de fidélisation client, de gestion des réclamations et d'amélioration de l'expérience client.</div>
+            <div class="formation-meta">
+              <span class="formation-meta-item"><i class="fa-solid fa-clock"></i> <span data-i18n="f1_dur">4 semaines</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-tag"></i> <span data-i18n="f1_price">150 000 F CFA</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-signal"></i> <span data-i18n="level_beginner">Débutant</span></span>
+            </div>
+            <ul class="prog-include">
+              <li><i class="fa-solid fa-check"></i> Techniques de fidélisation client</li>
+              <li><i class="fa-solid fa-check"></i> Gestion des réclamations</li>
+              <li><i class="fa-solid fa-check"></i> Amélioration de l'expérience client</li>
+              <li><i class="fa-solid fa-check"></i> Attestation de formation</li>
+            </ul>
+            <a href="app.html" class="btn btn-primary btn-block"><i class="fa-solid fa-user-plus"></i> <span data-i18n="btn_enroll">S'inscrire</span></a>
+          </div>
+        </div>
+
+        <div class="formation-card fade-in fade-in-delay-1" data-cat="grc">
+          <div class="formation-img orange">
+            <i class="fa-solid fa-network-wired"></i>
+            <div class="formation-img-label">
+              <span class="formation-tag"><span data-i18n="level_intermediate">Intermédiaire</span></span>
+              <span class="formation-tag"><span data-i18n="f2_dur">3 semaines</span></span>
+            </div>
+          </div>
+          <div class="formation-body">
+            <div class="formation-title" data-i18n="f2_title">GRC & Networking Professionnel</div>
+            <div class="formation-desc" data-i18n="f2_desc">Développez votre réseau professionnel et maîtrisez les outils de communication stratégique en relation client.</div>
+            <div class="formation-meta">
+              <span class="formation-meta-item"><i class="fa-solid fa-clock"></i> <span data-i18n="f2_dur">3 semaines</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-tag"></i> <span data-i18n="f2_price">120 000 F CFA</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-signal"></i> <span data-i18n="level_intermediate">Intermédiaire</span></span>
+            </div>
+            <ul class="prog-include">
+              <li><i class="fa-solid fa-check"></i> Développement réseau professionnel</li>
+              <li><i class="fa-solid fa-check"></i> Communication stratégique</li>
+              <li><i class="fa-solid fa-check"></i> Création d'opportunités business</li>
+              <li><i class="fa-solid fa-check"></i> Attestation de formation</li>
+            </ul>
+            <a href="app.html" class="btn btn-primary btn-block"><i class="fa-solid fa-user-plus"></i> <span data-i18n="btn_enroll">S'inscrire</span></a>
+          </div>
+        </div>
+
+        <div class="formation-card fade-in fade-in-delay-2" data-cat="crm">
+          <div class="formation-img teal">
+            <i class="fa-solid fa-laptop-code"></i>
+            <div class="formation-img-label">
+              <span class="formation-tag"><span data-i18n="level_intermediate">Intermédiaire</span></span>
+              <span class="formation-tag"><span data-i18n="f3_dur">3 semaines</span></span>
+            </div>
+          </div>
+          <div class="formation-body">
+            <div class="formation-title" data-i18n="f3_title">CRM & Outils Digitaux</div>
+            <div class="formation-desc" data-i18n="f3_desc">Maîtrisez les logiciels CRM (Salesforce, HubSpot, Zoho) utilisés par les grandes entreprises africaines.</div>
+            <div class="formation-meta">
+              <span class="formation-meta-item"><i class="fa-solid fa-clock"></i> <span data-i18n="f3_dur">3 semaines</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-tag"></i> <span data-i18n="f3_price">130 000 F CFA</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-signal"></i> <span data-i18n="level_intermediate">Intermédiaire</span></span>
+            </div>
+            <ul class="prog-include">
+              <li><i class="fa-solid fa-check"></i> Salesforce, HubSpot, Zoho CRM</li>
+              <li><i class="fa-solid fa-check"></i> Automatisation marketing</li>
+              <li><i class="fa-solid fa-check"></i> Tableaux de bord et reporting</li>
+              <li><i class="fa-solid fa-check"></i> Attestation de formation</li>
+            </ul>
+            <a href="app.html" class="btn btn-primary btn-block"><i class="fa-solid fa-user-plus"></i> <span data-i18n="btn_enroll">S'inscrire</span></a>
+          </div>
+        </div>
+
+        <div class="formation-card fade-in" data-cat="service">
+          <div class="formation-img purple">
+            <i class="fa-solid fa-comments"></i>
+            <div class="formation-img-label">
+              <span class="formation-tag"><span data-i18n="level_beginner">Débutant</span></span>
+              <span class="formation-tag"><span data-i18n="f4_dur">2 semaines</span></span>
+            </div>
+          </div>
+          <div class="formation-body">
+            <div class="formation-title" data-i18n="f4_title">Service Client & Communication</div>
+            <div class="formation-desc" data-i18n="f4_desc">Techniques d'accueil, gestion des conflits, communication verbale et non-verbale en centre d'appels.</div>
+            <div class="formation-meta">
+              <span class="formation-meta-item"><i class="fa-solid fa-clock"></i> <span data-i18n="f4_dur">2 semaines</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-tag"></i> <span data-i18n="f4_price">90 000 F CFA</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-signal"></i> <span data-i18n="level_beginner">Débutant</span></span>
+            </div>
+            <ul class="prog-include">
+              <li><i class="fa-solid fa-check"></i> Techniques d'accueil et élocution</li>
+              <li><i class="fa-solid fa-check"></i> Gestion des conflits clients</li>
+              <li><i class="fa-solid fa-check"></i> Communication non-verbale</li>
+              <li><i class="fa-solid fa-check"></i> Attestation de formation</li>
+            </ul>
+            <a href="app.html" class="btn btn-primary btn-block"><i class="fa-solid fa-user-plus"></i> <span data-i18n="btn_enroll">S'inscrire</span></a>
+          </div>
+        </div>
+
+        <div class="formation-card fade-in fade-in-delay-1" data-cat="management">
+          <div class="formation-img">
+            <i class="fa-solid fa-sitemap"></i>
+            <div class="formation-img-label">
+              <span class="formation-tag"><span data-i18n="level_advanced">Avancé</span></span>
+              <span class="formation-tag"><span data-i18n="f5_dur">4 semaines</span></span>
+            </div>
+          </div>
+          <div class="formation-body">
+            <div class="formation-title" data-i18n="f5_title">Management d'Équipe GRC</div>
+            <div class="formation-desc" data-i18n="f5_desc">Devenez superviseur ou team leader : pilotage des KPIs, coaching d'équipe, reporting.</div>
+            <div class="formation-meta">
+              <span class="formation-meta-item"><i class="fa-solid fa-clock"></i> <span data-i18n="f5_dur">4 semaines</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-tag"></i> <span data-i18n="f5_price">180 000 F CFA</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-signal"></i> <span data-i18n="level_advanced">Avancé</span></span>
+            </div>
+            <ul class="prog-include">
+              <li><i class="fa-solid fa-check"></i> Pilotage des KPIs centre d'appels</li>
+              <li><i class="fa-solid fa-check"></i> Coaching et feedback équipe</li>
+              <li><i class="fa-solid fa-check"></i> Reporting direction</li>
+              <li><i class="fa-solid fa-check"></i> Attestation de formation</li>
+            </ul>
+            <a href="app.html" class="btn btn-primary btn-block"><i class="fa-solid fa-user-plus"></i> <span data-i18n="btn_enroll">S'inscrire</span></a>
+          </div>
+        </div>
+
+        <div class="formation-card fade-in fade-in-delay-2" data-cat="crm">
+          <div class="formation-img orange">
+            <i class="fa-solid fa-table"></i>
+            <div class="formation-img-label">
+              <span class="formation-tag"><span data-i18n="level_beginner">Débutant</span></span>
+              <span class="formation-tag"><span data-i18n="f6_dur">2 semaines</span></span>
+            </div>
+          </div>
+          <div class="formation-body">
+            <div class="formation-title" data-i18n="f6_title">Bureautique & Outils CRM</div>
+            <div class="formation-desc" data-i18n="f6_desc">Excel, Word, CRM courants et outils de reporting pour les métiers de la relation client.</div>
+            <div class="formation-meta">
+              <span class="formation-meta-item"><i class="fa-solid fa-clock"></i> <span data-i18n="f6_dur">2 semaines</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-tag"></i> <span data-i18n="f6_price">80 000 F CFA</span></span>
+              <span class="formation-meta-item"><i class="fa-solid fa-signal"></i> <span data-i18n="level_beginner">Débutant</span></span>
+            </div>
+            <ul class="prog-include">
+              <li><i class="fa-solid fa-check"></i> Excel avancé pour GRC</li>
+              <li><i class="fa-solid fa-check"></i> Word et outils bureautique</li>
+              <li><i class="fa-solid fa-check"></i> Initiation aux CRM</li>
+              <li><i class="fa-solid fa-check"></i> Attestation de formation</li>
+            </ul>
+            <a href="app.html" class="btn btn-primary btn-block"><i class="fa-solid fa-user-plus"></i> <span data-i18n="btn_enroll">S'inscrire</span></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title" data-i18n="cta_title">Prêt à commencer votre formation ?</h2>
+      <p class="cta-sub">Créez votre compte gratuitement et inscrivez-vous à la formation de votre choix.</p>
+      <div class="cta-btns">
+        <a href="app.html" class="btn-cta-primary"><i class="fa-solid fa-user-plus"></i> <span data-i18n="cta_btn_primary">Créer mon compte</span></a>
+        <a href="contact.html" class="btn-cta-secondary"><i class="fa-solid fa-question-circle"></i> Plus d'infos</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="nav-logo" style="margin-bottom:14px"><img src="images/logo-sunu.png" alt="SUNU" width="36" height="36"><div><div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div><div class="nav-logo-sub">Excellence in Training</div></div></div><p class="footer-desc" data-i18n="footer_tagline">Cabinet de recrutement et de formation spécialisé en GRC à Dakar, Sénégal.</p><div class="footer-social"><a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+    <div><div class="footer-col-title" data-i18n="footer_nav">Navigation</div><ul class="footer-links"><li><a href="index.html" data-i18n="nav_home">Accueil</a></li><li><a href="a-propos.html" data-i18n="nav_about">À Propos</a></li><li><a href="services.html" data-i18n="nav_services">Services</a></li><li><a href="etudiants.html" data-i18n="nav_students">Étudiants</a></li><li><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a></li></ul></div>
+    <div><div class="footer-col-title" data-i18n="footer_formations_col">Formations</div><ul class="footer-links"><li><a href="formations.html">GRC</a></li><li><a href="formations.html">GRC & Networking</a></li><li><a href="formations.html">CRM & Digital</a></li><li><a href="formations.html">Service Client</a></li><li><a href="formations.html">Management GRC</a></li></ul></div>
+    <div><div class="footer-col-title" data-i18n="footer_contact_col">Contact</div><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span data-i18n="contact_address_val">Sacré-Cœur 3, VDN, Dakar, Sénégal</span></div><div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+221 77 404 18 78</span></div><div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>ousseynoumail@gmail.com</span></div></div>
+  </div>
+  <div class="footer-bottom"><span data-i18n="footer_copyright">© 2025 SUNU Training Center. Tous droits réservés.</span><a href="#" data-i18n="footer_legal">Mentions légales</a></div>
+</footer>
+<div class="pwa-banner hidden" id="pwaBanner"><div class="pwa-banner-icon">📱</div><div class="pwa-banner-text"><div class="pwa-banner-title" data-i18n="pwa_title">Installer l'application</div><div class="pwa-banner-sub" data-i18n="pwa_sub">Ajoutez SUNU à votre écran d'accueil</div></div><div class="pwa-banner-actions"><button class="pwa-install-btn" onclick="installPWA()" data-i18n="pwa_install">Installer</button><button class="pwa-dismiss-btn" onclick="dismissPWA()" data-i18n="pwa_dismiss">Plus tard</button></div></div>
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="vitrine/js/vitrine.js"></script>
+<script>
+function filterFormations(cat) {
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  document.querySelector(`[data-cat="${cat}"]`).classList.add('active');
+  document.querySelectorAll('.formation-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

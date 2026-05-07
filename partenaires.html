@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partenaires · SUNU Training Center</title>
+<meta name="description" content="Nos entreprises partenaires : Wave, Orange, Ecobank, Sonatel, Concentrix, Yango et plus.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E5AAE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="vitrine/css/style.css">
+<style>
+.partner-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:all 0.25s;display:flex;flex-direction:column}
+.partner-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--orange)}
+.partner-logo-big{width:64px;height:64px;border-radius:14px;background:var(--blue-light);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:16px}
+.partner-name{font-size:18px;font-weight:700;color:var(--blue);margin-bottom:4px}
+.partner-sector{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:12px}
+.partner-desc{font-size:13.5px;color:var(--text-soft);line-height:1.6;flex:1}
+.partner-status{display:inline-flex;align-items:center;gap:5px;margin-top:12px;font-size:12px;font-weight:500}
+.partner-status.actif{color:var(--success)}
+.partner-status.attente{color:var(--warning)}
+.sectors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:40px}
+.sector-pill{display:flex;align-items:center;gap:10px;padding:14px 18px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:all 0.2s;font-size:14px}
+.sector-pill:hover,.sector-pill.active{background:var(--orange);color:white;border-color:var(--orange)}
+.sector-pill i{font-size:16px}
+.partners-big-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.benefit-list{list-style:none}
+.benefit-list li{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border-soft);font-size:14.5px}
+.benefit-list li:last-child{border:none}
+.benefit-list li i{color:var(--orange);margin-top:2px;flex-shrink:0}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo-sunu.png" alt="SUNU logo" width="42" height="42"><div><div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div><div class="nav-logo-sub">Excellence in Training</div></div></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="a-propos.html" data-i18n="nav_about">À Propos</a></li>
+    <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+    <li><a href="formations.html" data-i18n="nav_formations">Formations</a></li>
+    <li><a href="etudiants.html" data-i18n="nav_students">Étudiants</a></li>
+    <li><a href="partenaires.html" data-i18n="nav_partners" class="active">Partenaires</a></li>
+    <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button>
+    <a href="app.html" class="btn-nav-login" id="navLoginBtn" data-i18n="nav_login">Se connecter</a>
+    <a href="app.html" class="btn-nav-cta" id="navCtaBtn" data-i18n="nav_signup">Créer un compte</a>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" data-i18n="nav_home">Accueil</a><a href="a-propos.html" data-i18n="nav_about">À Propos</a><a href="services.html" data-i18n="nav_services">Services</a><a href="formations.html" data-i18n="nav_formations">Formations</a><a href="etudiants.html" data-i18n="nav_students">Étudiants</a><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a><a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <div class="mobile-actions"><a href="app.html" class="btn btn-outline" data-i18n="nav_login">Se connecter</a><a href="app.html" class="btn btn-primary" data-i18n="nav_signup">Créer un compte</a><button class="lang-btn" id="mobileLangBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button></div>
+</div>
+
+<div class="page-wrapper">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-label"><i class="fa-solid fa-handshake"></i> <span data-i18n="partners_page_tag">Espace Partenaires</span></div>
+      <h1 class="page-hero-title" data-i18n="partners_page_title">Nos Partenaires Entreprises</h1>
+      <p class="page-hero-sub" data-i18n="partners_page_sub">SUNU travaille avec les leaders des secteurs banques, télécoms et fintechs au Sénégal et en Afrique de l'Ouest.</p>
+      <div class="breadcrumb"><a href="index.html" data-i18n="nav_home">Accueil</a><span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span><span data-i18n="nav_partners">Partenaires</span></div>
+    </div>
+  </div>
+
+  <!-- NOS PARTENAIRES -->
+  <section>
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag" data-i18n="our_partners_title">Ils nous font confiance</span>
+        <h2 class="section-title">30+ entreprises partenaires</h2>
+        <p class="section-sub">Nos partenaires recrutent régulièrement nos candidats formés dans les secteurs fintechs, banques, télécoms et BPO.</p>
+      </div>
+
+      <div class="sectors-grid">
+        <div class="sector-pill active" onclick="filterPartners('all',this)"><i class="fa-solid fa-th"></i> Tous les secteurs</div>
+        <div class="sector-pill" onclick="filterPartners('fintechs',this)"><i class="fa-solid fa-mobile-screen-button"></i> Fintechs</div>
+        <div class="sector-pill" onclick="filterPartners('telecoms',this)"><i class="fa-solid fa-signal"></i> Télécoms</div>
+        <div class="sector-pill" onclick="filterPartners('banques',this)"><i class="fa-solid fa-building-columns"></i> Banques</div>
+        <div class="sector-pill" onclick="filterPartners('bpo',this)"><i class="fa-solid fa-headset"></i> BPO</div>
+      </div>
+
+      <div class="partners-big-grid" id="partnersGrid">
+        <div class="partner-card fade-in" data-sector="fintechs">
+          <div class="partner-logo-big"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <div class="partner-name">Wave Sénégal</div>
+          <div class="partner-sector">Fintechs</div>
+          <div class="partner-desc">Leader du transfert d'argent mobile en Afrique de l'Ouest. Recrute régulièrement des téléconseillers bilingues et des superviseurs GRC.</div>
+          <div class="partner-status actif"><i class="fa-solid fa-circle-check"></i> Partenaire actif · 3 offres en cours</div>
+        </div>
+        <div class="partner-card fade-in fade-in-delay-1" data-sector="telecoms">
+          <div class="partner-logo-big"><i class="fa-solid fa-signal"></i></div>
+          <div class="partner-name">Orange CI</div>
+          <div class="partner-sector">Télécoms</div>
+          <div class="partner-desc">Opérateur télécom leader en Afrique de l'Ouest. Besoins constants en superviseurs GRC et conseillers commerciaux expérimentés.</div>
+          <div class="partner-status actif"><i class="fa-solid fa-circle-check"></i> Partenaire actif · 2 offres en cours</div>
+        </div>
+        <div class="partner-card fade-in fade-in-delay-2" data-sector="banques">
+          <div class="partner-logo-big"><i class="fa-solid fa-building-columns"></i></div>
+          <div class="partner-name">Ecobank</div>
+          <div class="partner-sector">Banques</div>
+          <div class="partner-desc">Banque panafricaine présente dans 33 pays. Recrute des conseillers back-office et des chargés de clientèle régulièrement.</div>
+          <div class="partner-status actif"><i class="fa-solid fa-circle-check"></i> Partenaire actif · 1 offre en cours</div>
+        </div>
+        <div class="partner-card fade-in" data-sector="telecoms">
+          <div class="partner-logo-big"><i class="fa-solid fa-tower-broadcast"></i></div>
+          <div class="partner-name">Sonatel</div>
+          <div class="partner-sector">Télécoms</div>
+          <div class="partner-desc">Opérateur national historique du Sénégal, filiale d'Orange. Recrute des conseillers commerciaux et des téléopérateurs expérimentés.</div>
+          <div class="partner-status attente"><i class="fa-solid fa-hourglass-half"></i> Partenariat en cours de finalisation</div>
+        </div>
+        <div class="partner-card fade-in fade-in-delay-1" data-sector="bpo">
+          <div class="partner-logo-big"><i class="fa-solid fa-headset"></i></div>
+          <div class="partner-name">Concentrix</div>
+          <div class="partner-sector">BPO</div>
+          <div class="partner-desc">Leader mondial du BPO, implanté à Dakar. Recrute massivement des téléopérateurs et agents de centre d'appels multilingues.</div>
+          <div class="partner-status actif"><i class="fa-solid fa-circle-check"></i> Partenaire actif · 5 offres en cours</div>
+        </div>
+        <div class="partner-card fade-in fade-in-delay-2" data-sector="fintechs">
+          <div class="partner-logo-big"><i class="fa-solid fa-car"></i></div>
+          <div class="partner-name">Yango</div>
+          <div class="partner-sector">Fintechs / Mobilité</div>
+          <div class="partner-desc">Super-application de mobilité et services. Recrute des agents de relation client digitale pour gérer les conversations via app et réseaux sociaux.</div>
+          <div class="partner-status actif"><i class="fa-solid fa-circle-check"></i> Partenaire actif · 1 offre en cours</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVENIR PARTENAIRE -->
+  <section class="alt-section">
+    <div class="section-inner">
+      <div class="split-grid">
+        <div class="fade-in">
+          <span class="section-tag" data-i18n="become_partner_title">Devenir partenaire</span>
+          <h2 class="section-title">Rejoignez notre réseau</h2>
+          <p class="section-sub" style="margin-bottom:20px" data-i18n="become_partner_desc">Rejoignez notre réseau d'entreprises et accédez à des profils GRC pré-qualifiés.</p>
+          <ul class="benefit-list">
+            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="partner_benefit_1">Accès à des profils pré-sélectionnés et testés</span></li>
+            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="partner_benefit_2">Processus de recrutement rapide (72h)</span></li>
+            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="partner_benefit_3">Garantie de remplacement si insatisfaction</span></li>
+            <li><i class="fa-solid fa-circle-check"></i> <span data-i18n="partner_benefit_4">Suivi et accompagnement post-placement</span></li>
+          </ul>
+          <a href="contact.html" class="btn btn-blue btn-lg" style="margin-top:24px"><i class="fa-solid fa-handshake"></i> <span data-i18n="btn_contact_us">Nous contacter</span></a>
+        </div>
+        <div class="split-img fade-in fade-in-delay-1"><i class="fa-solid fa-handshake"></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGES PARTENAIRES -->
+  <section>
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag" data-i18n="partner_testimonials_title">Ce qu'ils disent de nous</span>
+        <h2 class="section-title">La voix de nos partenaires</h2>
+      </div>
+      <div class="testimonials-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px">
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">« SUNU Training Center est un partenaire de confiance. Les profils présentés sont toujours bien préparés et connaissent nos métiers. Le processus de recrutement est rapide et professionnel. »</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#0D9488,#0F766E)">AW</div>
+            <div><div class="testimonial-name">Awa Ndiaye</div><div class="testimonial-role">DRH, Wave Sénégal</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fade-in-delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">« Nous travaillons avec SUNU depuis 2 ans. Leur base de candidats formés spécifiquement en GRC nous fait gagner un temps précieux dans nos recrutements. »</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:linear-gradient(135deg,#7C3AED,#5B21B6)">MB</div>
+            <div><div class="testimonial-name">Mariama Bah</div><div class="testimonial-role">Responsable RH, Ecobank</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fade-in-delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">« Le taux de rétention des collaborateurs recrutés via SUNU est supérieur à nos autres canaux. La qualité de la formation fait la différence sur le terrain. »</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">PK</div>
+            <div><div class="testimonial-name">Pierre Koffi</div><div class="testimonial-role">Manager, Orange CI</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title">Vous recrutez des profils GRC ?</h2>
+      <p class="cta-sub">Contactez-nous pour accéder à notre vivier de candidats pré-qualifiés.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-cta-primary"><i class="fa-solid fa-envelope"></i> <span data-i18n="btn_contact_us">Nous contacter</span></a>
+        <a href="services.html" class="btn-cta-secondary"><i class="fa-solid fa-briefcase"></i> Voir nos services</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="nav-logo" style="margin-bottom:14px"><img src="images/logo-sunu.png" alt="SUNU" width="36" height="36"><div><div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div><div class="nav-logo-sub">Excellence in Training</div></div></div><p class="footer-desc" data-i18n="footer_tagline">Cabinet de recrutement et de formation spécialisé en GRC à Dakar, Sénégal.</p><div class="footer-social"><a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+    <div><div class="footer-col-title" data-i18n="footer_nav">Navigation</div><ul class="footer-links"><li><a href="index.html" data-i18n="nav_home">Accueil</a></li><li><a href="a-propos.html" data-i18n="nav_about">À Propos</a></li><li><a href="services.html" data-i18n="nav_services">Services</a></li><li><a href="etudiants.html" data-i18n="nav_students">Étudiants</a></li><li><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a></li></ul></div>
+    <div><div class="footer-col-title" data-i18n="footer_formations_col">Formations</div><ul class="footer-links"><li><a href="formations.html">GRC</a></li><li><a href="formations.html">GRC & Networking</a></li><li><a href="formations.html">CRM & Digital</a></li><li><a href="formations.html">Service Client</a></li><li><a href="formations.html">Management GRC</a></li></ul></div>
+    <div><div class="footer-col-title" data-i18n="footer_contact_col">Contact</div><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span data-i18n="contact_address_val">Sacré-Cœur 3, VDN, Dakar, Sénégal</span></div><div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+221 77 404 18 78</span></div><div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>ousseynoumail@gmail.com</span></div></div>
+  </div>
+  <div class="footer-bottom"><span data-i18n="footer_copyright">© 2025 SUNU Training Center. Tous droits réservés.</span><a href="#" data-i18n="footer_legal">Mentions légales</a></div>
+</footer>
+<div class="pwa-banner hidden" id="pwaBanner"><div class="pwa-banner-icon">📱</div><div class="pwa-banner-text"><div class="pwa-banner-title" data-i18n="pwa_title">Installer l'application</div><div class="pwa-banner-sub" data-i18n="pwa_sub">Ajoutez SUNU à votre écran d'accueil</div></div><div class="pwa-banner-actions"><button class="pwa-install-btn" onclick="installPWA()" data-i18n="pwa_install">Installer</button><button class="pwa-dismiss-btn" onclick="dismissPWA()" data-i18n="pwa_dismiss">Plus tard</button></div></div>
+<div class="toast-stack" id="toastStack"></div>
+<script src="vitrine/js/vitrine.js"></script>
+<script>
+function filterPartners(sector, el) {
+  document.querySelectorAll('.sector-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.partner-card').forEach(card => {
+    card.style.display = (sector === 'all' || card.dataset.sector === sector) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

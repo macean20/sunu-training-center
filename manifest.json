@@ -1,0 +1,43 @@
+{
+  "name": "SUNU Training Center",
+  "short_name": "SUNU",
+  "description": "Cabinet de recrutement et de formation spécialisé en GRC à Dakar, Sénégal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFBF5",
+  "theme_color": "#1E5AAE",
+  "orientation": "portrait-primary",
+  "lang": "fr",
+  "categories": ["education", "business"],
+  "icons": [
+    {
+      "src": "images/logo-sunu.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/logo-sunu.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Formations",
+      "url": "/formations.html",
+      "description": "Voir les formations SUNU"
+    },
+    {
+      "name": "Mon espace",
+      "url": "/app.html",
+      "description": "Accéder à l'application"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact.html",
+      "description": "Nous contacter"
+    }
+  ]
+}

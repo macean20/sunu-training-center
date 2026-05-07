@@ -1,0 +1,16 @@
+# SUNU Training Center — Redirections Cloudflare Pages
+
+# Compatibilité URL sans .html
+/accueil          /index.html        301
+/about            /a-propos.html     301
+/apropos          /a-propos.html     301
+/service          /services.html     301
+/formation        /formations.html   301
+/etudiant         /etudiants.html    301
+/partenaire       /partenaires.html  301
+/app              /app.html          301
+/dashboard        /app.html          301
+/login            /app.html          301
+
+# Fallback SPA (ne pas activer, site statique multipage)
+# /*  /index.html  200

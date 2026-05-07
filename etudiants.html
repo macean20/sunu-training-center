@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espace Étudiants · SUNU Training Center</title>
+<meta name="description" content="Postulez, formez-vous et décrochez votre premier emploi GRC avec SUNU Training Center.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E5AAE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="vitrine/css/style.css">
+<style>
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 24px;text-align:center;position:relative;transition:all 0.25s}
+.step-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--orange);color:white;font-family:var(--font-display);font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 4px 14px rgba(255,107,53,.35)}
+.step-title{font-size:16px;font-weight:600;color:var(--blue);margin-bottom:8px}
+.step-desc{font-size:13.5px;color:var(--text-soft);line-height:1.6}
+.benefits-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.benefit-item{display:flex;gap:16px;padding:24px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);transition:all 0.2s}
+.benefit-item:hover{border-color:var(--orange);transform:translateY(-2px)}
+.benefit-icon{width:48px;height:48px;border-radius:12px;background:var(--orange-light);color:var(--orange);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.benefit-title{font-size:15px;font-weight:600;color:var(--blue);margin-bottom:6px}
+.benefit-desc{font-size:13px;color:var(--text-soft);line-height:1.55}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.login-cta-box{background:var(--blue-light);border:1px solid var(--blue);border-radius:var(--radius-lg);padding:32px;text-align:center;margin-top:32px}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo-sunu.png" alt="SUNU logo" width="42" height="42"><div><div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div><div class="nav-logo-sub">Excellence in Training</div></div></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="a-propos.html" data-i18n="nav_about">À Propos</a></li>
+    <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+    <li><a href="formations.html" data-i18n="nav_formations">Formations</a></li>
+    <li><a href="etudiants.html" data-i18n="nav_students" class="active">Étudiants</a></li>
+    <li><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a></li>
+    <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button>
+    <a href="app.html" class="btn-nav-login" id="navLoginBtn" data-i18n="nav_login">Se connecter</a>
+    <a href="app.html" class="btn-nav-cta" id="navCtaBtn" data-i18n="nav_signup">Créer un compte</a>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" data-i18n="nav_home">Accueil</a><a href="a-propos.html" data-i18n="nav_about">À Propos</a><a href="services.html" data-i18n="nav_services">Services</a><a href="formations.html" data-i18n="nav_formations">Formations</a><a href="etudiants.html" data-i18n="nav_students">Étudiants</a><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a><a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <div class="mobile-actions"><a href="app.html" class="btn btn-outline" data-i18n="nav_login">Se connecter</a><a href="app.html" class="btn btn-primary" data-i18n="nav_signup">Créer un compte</a><button class="lang-btn" id="mobileLangBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button></div>
+</div>
+
+<div class="page-wrapper">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-label"><i class="fa-solid fa-user-graduate"></i> <span data-i18n="students_page_tag">Espace Étudiants</span></div>
+      <h1 class="page-hero-title" data-i18n="students_page_title">Lancez votre carrière GRC</h1>
+      <p class="page-hero-sub" data-i18n="students_page_sub">Rejoignez la communauté SUNU et accédez aux meilleures opportunités en Gestion de la Relation Client.</p>
+      <div class="breadcrumb"><a href="index.html" data-i18n="nav_home">Accueil</a><span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span><span data-i18n="nav_students">Étudiants</span></div>
+    </div>
+  </div>
+
+  <!-- COMMENT ÇA MARCHE -->
+  <section>
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag" data-i18n="how_title">Comment ça marche ?</span>
+        <h2 class="section-title">4 étapes vers votre emploi GRC</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card fade-in">
+          <div class="step-num">1</div>
+          <div class="step-title" data-i18n="step_1">Créez votre compte</div>
+          <div class="step-desc" data-i18n="step_1_desc">Inscrivez-vous gratuitement et complétez votre profil candidat en quelques minutes.</div>
+        </div>
+        <div class="step-card fade-in fade-in-delay-1">
+          <div class="step-num">2</div>
+          <div class="step-title" data-i18n="step_2">Choisissez une formation</div>
+          <div class="step-desc" data-i18n="step_2_desc">Sélectionnez la formation adaptée à votre niveau et vos objectifs professionnels.</div>
+        </div>
+        <div class="step-card fade-in fade-in-delay-2">
+          <div class="step-num">3</div>
+          <div class="step-title" data-i18n="step_3">Passez les tests</div>
+          <div class="step-desc" data-i18n="step_3_desc">Validez vos compétences avec nos tests techniques (orthographe, élocution, bureautique).</div>
+        </div>
+        <div class="step-card fade-in fade-in-delay-3">
+          <div class="step-num">4</div>
+          <div class="step-title" data-i18n="step_4">Trouvez un emploi</div>
+          <div class="step-desc" data-i18n="step_4_desc">Accédez aux offres exclusives de nos entreprises partenaires et décrochez votre poste.</div>
+        </div>
+      </div>
+
+      <div class="login-cta-box fade-in">
+        <h3 style="font-family:var(--font-display);font-size:20px;color:var(--blue);margin-bottom:10px">Vous avez déjà un compte ?</h3>
+        <p style="font-size:14px;color:var(--text-soft);margin-bottom:20px">Connectez-vous pour accéder à votre tableau de bord personnel, vos candidatures et vos tests.</p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a href="app.html" class="btn btn-blue btn-lg"><i class="fa-solid fa-right-to-bracket"></i> <span data-i18n="nav_login">Se connecter</span></a>
+          <a href="app.html" class="btn btn-primary btn-lg"><i class="fa-solid fa-user-plus"></i> <span data-i18n="btn_create_account">Créer mon compte gratuit</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVANTAGES ÉTUDIANTS -->
+  <section class="alt-section">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag" data-i18n="benefits_title">Vos avantages</span>
+        <h2 class="section-title">Pourquoi rejoindre SUNU ?</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-item fade-in">
+          <div class="benefit-icon"><i class="fa-solid fa-chalkboard-teacher"></i></div>
+          <div><div class="benefit-title" data-i18n="ben_1">Formations 100% pratiques</div><div class="benefit-desc" data-i18n="ben_1_desc">Des exercices basés sur des cas réels d'entreprises sénégalaises.</div></div>
+        </div>
+        <div class="benefit-item fade-in fade-in-delay-1">
+          <div class="benefit-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <div><div class="benefit-title" data-i18n="ben_2">Accès aux offres d'emploi</div><div class="benefit-desc" data-i18n="ben_2_desc">Offres exclusives de nos 30+ partenaires (banques, télécoms, fintechs).</div></div>
+        </div>
+        <div class="benefit-item fade-in fade-in-delay-2">
+          <div class="benefit-icon"><i class="fa-solid fa-certificate"></i></div>
+          <div><div class="benefit-title" data-i18n="ben_3">Certification reconnue</div><div class="benefit-desc" data-i18n="ben_3_desc">Une attestation de formation SUNU reconnue par les employeurs.</div></div>
+        </div>
+        <div class="benefit-item fade-in fade-in-delay-3">
+          <div class="benefit-icon"><i class="fa-solid fa-person-chalkboard"></i></div>
+          <div><div class="benefit-title" data-i18n="ben_4">Accompagnement personnalisé</div><div class="benefit-desc" data-i18n="ben_4_desc">Un conseiller dédié pour suivre votre progression et votre recherche d'emploi.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TÉMOIGNAGES -->
+  <section>
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag" data-i18n="testimonials_title">Ils ont réussi avec SUNU</span>
+        <h2 class="section-title">Témoignages</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">« Grâce à SUNU Training Center, j'ai décroché un poste de téléconseillère chez Wave Sénégal en moins de 2 mois. La formation est vraiment pratique et les formateurs sont excellents ! »</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MS</div>
+            <div><div class="testimonial-name">Mariama Sall</div><div class="testimonial-role">Téléconseillère chez Wave Sénégal</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fade-in-delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">« J'avais zéro expérience en GRC. Après 4 semaines de formation SUNU, je maîtrisais les techniques et j'ai été recruté comme conseiller back-office chez Ecobank. »</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AD</div>
+            <div><div class="testimonial-name">Abdou Diallo</div><div class="testimonial-role">Conseiller Back-Office chez Ecobank</div></div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fade-in-delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <div class="testimonial-text">« Le plus de SUNU c'est l'accompagnement personnalisé. Mon conseiller m'a aidé à préparer mes entretiens et à rédiger mon CV. Je recommande à 100%. »</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">FB</div>
+            <div><div class="testimonial-name">Fatou Ba</div><div class="testimonial-role">Superviseure GRC chez Orange CI</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title" data-i18n="cta_students_title">Prêt à commencer ?</h2>
+      <p class="cta-sub" data-i18n="cta_students_sub">Créez votre compte gratuitement et découvrez toutes les opportunités SUNU.</p>
+      <div class="cta-btns">
+        <a href="app.html" class="btn-cta-primary"><i class="fa-solid fa-user-plus"></i> <span data-i18n="btn_create_account">Créer mon compte gratuit</span></a>
+        <a href="formations.html" class="btn-cta-secondary"><i class="fa-solid fa-graduation-cap"></i> <span data-i18n="btn_see_formations">Voir les formations</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="nav-logo" style="margin-bottom:14px"><img src="images/logo-sunu.png" alt="SUNU" width="36" height="36"><div><div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div><div class="nav-logo-sub">Excellence in Training</div></div></div><p class="footer-desc" data-i18n="footer_tagline">Cabinet de recrutement et de formation spécialisé en GRC à Dakar, Sénégal.</p><div class="footer-social"><a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+    <div><div class="footer-col-title" data-i18n="footer_nav">Navigation</div><ul class="footer-links"><li><a href="index.html" data-i18n="nav_home">Accueil</a></li><li><a href="a-propos.html" data-i18n="nav_about">À Propos</a></li><li><a href="services.html" data-i18n="nav_services">Services</a></li><li><a href="etudiants.html" data-i18n="nav_students">Étudiants</a></li><li><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a></li></ul></div>
+    <div><div class="footer-col-title" data-i18n="footer_formations_col">Formations</div><ul class="footer-links"><li><a href="formations.html">GRC</a></li><li><a href="formations.html">GRC & Networking</a></li><li><a href="formations.html">CRM & Digital</a></li><li><a href="formations.html">Service Client</a></li><li><a href="formations.html">Management GRC</a></li></ul></div>
+    <div><div class="footer-col-title" data-i18n="footer_contact_col">Contact</div><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span data-i18n="contact_address_val">Sacré-Cœur 3, VDN, Dakar, Sénégal</span></div><div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+221 77 404 18 78</span></div><div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>ousseynoumail@gmail.com</span></div></div>
+  </div>
+  <div class="footer-bottom"><span data-i18n="footer_copyright">© 2025 SUNU Training Center. Tous droits réservés.</span><a href="#" data-i18n="footer_legal">Mentions légales</a></div>
+</footer>
+<div class="pwa-banner hidden" id="pwaBanner"><div class="pwa-banner-icon">📱</div><div class="pwa-banner-text"><div class="pwa-banner-title" data-i18n="pwa_title">Installer l'application</div><div class="pwa-banner-sub" data-i18n="pwa_sub">Ajoutez SUNU à votre écran d'accueil</div></div><div class="pwa-banner-actions"><button class="pwa-install-btn" onclick="installPWA()" data-i18n="pwa_install">Installer</button><button class="pwa-dismiss-btn" onclick="dismissPWA()" data-i18n="pwa_dismiss">Plus tard</button></div></div>
+<div class="toast-stack" id="toastStack"></div>
+<script src="vitrine/js/vitrine.js"></script>
+</body>
+</html>

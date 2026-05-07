@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À Propos · SUNU Training Center</title>
+<meta name="description" content="Découvrez l'histoire, la mission et les valeurs de SUNU Training Center, cabinet GRC à Dakar.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E5AAE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="vitrine/css/style.css">
+<style>
+.team-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 24px;text-align:center;transition:all 0.25s}
+.team-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.team-avatar{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--blue-dark));color:white;font-family:var(--font-display);font-size:28px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.team-avatar.orange{background:linear-gradient(135deg,var(--orange),var(--orange-dark))}
+.team-avatar.teal{background:linear-gradient(135deg,#0D9488,#0F766E)}
+.team-name{font-family:var(--font-display);font-size:17px;color:var(--blue);margin-bottom:4px;letter-spacing:0.02em}
+.team-role{font-size:13px;color:var(--text-soft);margin-bottom:12px}
+.values-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.value-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;border-top:3px solid var(--orange)}
+.value-icon{font-size:28px;margin-bottom:12px}
+.value-title{font-size:16px;font-weight:600;color:var(--blue);margin-bottom:8px}
+.value-desc{font-size:13.5px;color:var(--text-soft);line-height:1.6}
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:640px){.mission-grid{grid-template-columns:1fr}}
+.mission-card{border-radius:var(--radius-lg);padding:32px}
+.mission-card.blue{background:var(--blue);color:white}
+.mission-card.orange{background:var(--orange);color:white}
+.mission-card-title{font-family:var(--font-display);font-size:20px;margin-bottom:14px;letter-spacing:0.02em}
+.mission-card-text{font-size:14.5px;line-height:1.7;opacity:0.9}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-sunu.png" alt="SUNU logo" width="42" height="42">
+    <div>
+      <div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div>
+      <div class="nav-logo-sub">Excellence in Training</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="a-propos.html" data-i18n="nav_about" class="active">À Propos</a></li>
+    <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+    <li><a href="formations.html" data-i18n="nav_formations">Formations</a></li>
+    <li><a href="etudiants.html" data-i18n="nav_students">Étudiants</a></li>
+    <li><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a></li>
+    <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button>
+    <a href="app.html" class="btn-nav-login" id="navLoginBtn" data-i18n="nav_login">Se connecter</a>
+    <a href="app.html" class="btn-nav-cta" id="navCtaBtn" data-i18n="nav_signup">Créer un compte</a>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" data-i18n="nav_home">Accueil</a>
+  <a href="a-propos.html" data-i18n="nav_about">À Propos</a>
+  <a href="services.html" data-i18n="nav_services">Services</a>
+  <a href="formations.html" data-i18n="nav_formations">Formations</a>
+  <a href="etudiants.html" data-i18n="nav_students">Étudiants</a>
+  <a href="partenaires.html" data-i18n="nav_partners">Partenaires</a>
+  <a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <div class="mobile-actions">
+    <a href="app.html" class="btn btn-outline" data-i18n="nav_login">Se connecter</a>
+    <a href="app.html" class="btn btn-primary" data-i18n="nav_signup">Créer un compte</a>
+    <button class="lang-btn" id="mobileLangBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button>
+  </div>
+</div>
+
+<div class="page-wrapper">
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-label"><i class="fa-solid fa-building"></i> <span data-i18n="about_page_tag">Notre histoire</span></div>
+      <h1 class="page-hero-title" data-i18n="about_page_title">À Propos de SUNU Training Center</h1>
+      <p class="page-hero-sub" data-i18n="about_page_sub">Un cabinet dédié à l'excellence en formation et recrutement GRC en Afrique de l'Ouest.</p>
+      <div class="breadcrumb">
+        <a href="index.html" data-i18n="nav_home">Accueil</a>
+        <span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span>
+        <span data-i18n="nav_about">À Propos</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTOIRE -->
+  <section>
+    <div class="section-inner">
+      <div class="split-grid">
+        <div class="fade-in">
+          <span class="section-tag" data-i18n="about_story_title">Notre histoire</span>
+          <h2 class="section-title">SUNU Training Center</h2>
+          <p style="font-size:15.5px;color:var(--text-soft);line-height:1.8;margin-bottom:20px" data-i18n="about_story">
+            SUNU Training Center a été fondé à Dakar avec une mission claire : connecter les meilleurs talents GRC aux entreprises qui en ont besoin. Né de la conviction que la relation client est le moteur de la croissance des entreprises africaines, notre cabinet a développé une méthodologie unique alliant formation pratique et placement professionnel.
+          </p>
+          <p style="font-size:15px;color:var(--text-soft);line-height:1.8">
+            — <strong>Ousseynou FALL</strong>, Fondateur de SUNU Training Center
+          </p>
+          <div style="margin-top:28px">
+            <span class="badge badge-blue" style="margin-right:8px"><i class="fa-solid fa-graduation-cap"></i> 500+ diplômés</span>
+            <span class="badge badge-orange"><i class="fa-solid fa-handshake"></i> 30+ entreprises</span>
+          </div>
+        </div>
+        <div class="split-img fade-in fade-in-delay-1">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+  <section class="alt-section">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag">Mission & Vision</span>
+        <h2 class="section-title">Ce qui nous guide</h2>
+      </div>
+      <div class="mission-grid">
+        <div class="mission-card blue fade-in">
+          <div class="mission-card-title"><i class="fa-solid fa-bullseye" style="margin-right:10px"></i><span data-i18n="about_mission_title">Notre Mission</span></div>
+          <p class="mission-card-text" data-i18n="about_mission">Former et placer les meilleurs talents en Gestion de la Relation Client pour accompagner la croissance des entreprises sénégalaises et africaines.</p>
+        </div>
+        <div class="mission-card orange fade-in fade-in-delay-1">
+          <div class="mission-card-title"><i class="fa-solid fa-eye" style="margin-right:10px"></i><span data-i18n="about_vision_title">Notre Vision</span></div>
+          <p class="mission-card-text" data-i18n="about_vision">Devenir le leader de la formation et du recrutement GRC en Afrique de l'Ouest d'ici 2030.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALEURS -->
+  <section>
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag" data-i18n="about_values_title">Nos Valeurs</span>
+        <h2 class="section-title">Ce en quoi nous croyons</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card fade-in">
+          <div class="value-icon">🏆</div>
+          <div class="value-title" data-i18n="val_excellence">Excellence</div>
+          <div class="value-desc" data-i18n="val_excellence_desc">Nous visons l'excellence dans chaque formation et chaque placement.</div>
+        </div>
+        <div class="value-card fade-in fade-in-delay-1">
+          <div class="value-icon">🤝</div>
+          <div class="value-title" data-i18n="val_integrity">Intégrité</div>
+          <div class="value-desc" data-i18n="val_integrity_desc">Transparence et honnêteté dans toutes nos relations professionnelles.</div>
+        </div>
+        <div class="value-card fade-in fade-in-delay-2">
+          <div class="value-icon">💡</div>
+          <div class="value-title" data-i18n="val_innovation">Innovation</div>
+          <div class="value-desc" data-i18n="val_innovation_desc">Des méthodes pédagogiques modernes adaptées au marché africain.</div>
+        </div>
+        <div class="value-card fade-in fade-in-delay-3">
+          <div class="value-icon">❤️</div>
+          <div class="value-title" data-i18n="val_proximity">Proximité</div>
+          <div class="value-desc" data-i18n="val_proximity_desc">Un accompagnement personnalisé pour chaque candidat et entreprise.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉQUIPE -->
+  <section class="alt-section">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag" data-i18n="team_title">Notre Équipe</span>
+        <h2 class="section-title">Les visages de SUNU</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card fade-in">
+          <div class="team-avatar">OF</div>
+          <div class="team-name">Ousseynou FALL</div>
+          <div class="team-role" data-i18n="team_founder">Fondateur & Directeur</div>
+          <p style="font-size:13px;color:var(--text-soft);line-height:1.6">Entrepreneur passionné par la relation client et le développement des talents en Afrique de l'Ouest.</p>
+        </div>
+        <div class="team-card fade-in fade-in-delay-1">
+          <div class="team-avatar orange">AD</div>
+          <div class="team-name">Aïcha Diop</div>
+          <div class="team-role" data-i18n="team_coordinator">Coordinatrice Pédagogique</div>
+          <p style="font-size:13px;color:var(--text-soft);line-height:1.6">Responsable de la qualité des formations et du suivi personnalisé des apprenants SUNU.</p>
+        </div>
+        <div class="team-card fade-in fade-in-delay-2">
+          <div class="team-avatar teal">FK</div>
+          <div class="team-name">Fatou Koné</div>
+          <div class="team-role" data-i18n="team_relations">Chargée des Relations Entreprises</div>
+          <p style="font-size:13px;color:var(--text-soft);line-height:1.6">Développe et entretient les partenariats avec les entreprises des secteurs banques, télécoms et fintechs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title" data-i18n="cta_title">Prêt à booster votre carrière ?</h2>
+      <p class="cta-sub" data-i18n="cta_sub">Rejoignez des centaines d'étudiants et de professionnels qui ont déjà fait confiance à SUNU Training Center.</p>
+      <div class="cta-btns">
+        <a href="app.html" class="btn-cta-primary"><i class="fa-solid fa-user-plus"></i> <span data-i18n="cta_btn_primary">Créer mon compte</span></a>
+        <a href="contact.html" class="btn-cta-secondary"><i class="fa-solid fa-envelope"></i> <span data-i18n="nav_contact">Contact</span></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:14px">
+        <img src="images/logo-sunu.png" alt="SUNU" width="36" height="36">
+        <div><div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div><div class="nav-logo-sub">Excellence in Training</div></div>
+      </div>
+      <p class="footer-desc" data-i18n="footer_tagline">Cabinet de recrutement et de formation spécialisé en GRC à Dakar, Sénégal.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title" data-i18n="footer_nav">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+        <li><a href="a-propos.html" data-i18n="nav_about">À Propos</a></li>
+        <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+        <li><a href="etudiants.html" data-i18n="nav_students">Étudiants</a></li>
+        <li><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title" data-i18n="footer_formations_col">Formations</div>
+      <ul class="footer-links">
+        <li><a href="formations.html">GRC</a></li>
+        <li><a href="formations.html">GRC & Networking</a></li>
+        <li><a href="formations.html">CRM & Digital</a></li>
+        <li><a href="formations.html">Service Client</a></li>
+        <li><a href="formations.html">Management GRC</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title" data-i18n="footer_contact_col">Contact</div>
+      <div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span data-i18n="contact_address_val">Sacré-Cœur 3, VDN, Dakar, Sénégal</span></div>
+      <div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+221 77 404 18 78</span></div>
+      <div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>ousseynoumail@gmail.com</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-i18n="footer_copyright">© 2025 SUNU Training Center. Tous droits réservés.</span>
+    <a href="#" data-i18n="footer_legal">Mentions légales</a>
+  </div>
+</footer>
+
+<div class="pwa-banner hidden" id="pwaBanner">
+  <div class="pwa-banner-icon">📱</div>
+  <div class="pwa-banner-text">
+    <div class="pwa-banner-title" data-i18n="pwa_title">Installer l'application</div>
+    <div class="pwa-banner-sub" data-i18n="pwa_sub">Ajoutez SUNU à votre écran d'accueil</div>
+  </div>
+  <div class="pwa-banner-actions">
+    <button class="pwa-install-btn" onclick="installPWA()" data-i18n="pwa_install">Installer</button>
+    <button class="pwa-dismiss-btn" onclick="dismissPWA()" data-i18n="pwa_dismiss">Plus tard</button>
+  </div>
+</div>
+<div class="toast-stack" id="toastStack"></div>
+<script src="vitrine/js/vitrine.js"></script>
+</body>
+</html>

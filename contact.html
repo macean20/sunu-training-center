@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · SUNU Training Center</title>
+<meta name="description" content="Contactez SUNU Training Center — Dakar Sacré-Cœur 3, VDN. +221 77 404 18 78.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E5AAE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="vitrine/css/style.css">
+<style>
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:start}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+.contact-form-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px}
+.contact-form-title{font-family:var(--font-display);font-size:22px;color:var(--blue);margin-bottom:24px;letter-spacing:0.02em}
+.map-placeholder{background:linear-gradient(135deg,var(--blue-light),var(--bg-soft));border:1px solid var(--border);border-radius:var(--radius-lg);height:220px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:var(--text-muted);margin-top:16px}
+.map-placeholder i{font-size:36px;color:var(--orange);opacity:0.5}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden}
+.faq-q{padding:16px 20px;font-size:14.5px;font-weight:500;color:var(--blue);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s}
+.faq-q:hover{background:var(--bg-soft)}
+.faq-q i{transition:transform 0.3s;color:var(--orange);flex-shrink:0}
+.faq-a{font-size:13.5px;color:var(--text-soft);line-height:1.7;padding:0 20px;max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s}
+.faq-item.open .faq-q i{transform:rotate(180deg)}
+.faq-item.open .faq-a{max-height:200px;padding:0 20px 16px}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo"><img src="images/logo-sunu.png" alt="SUNU logo" width="42" height="42"><div><div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div><div class="nav-logo-sub">Excellence in Training</div></div></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="a-propos.html" data-i18n="nav_about">À Propos</a></li>
+    <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+    <li><a href="formations.html" data-i18n="nav_formations">Formations</a></li>
+    <li><a href="etudiants.html" data-i18n="nav_students">Étudiants</a></li>
+    <li><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a></li>
+    <li><a href="contact.html" data-i18n="nav_contact" class="active">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button>
+    <a href="app.html" class="btn-nav-login" id="navLoginBtn" data-i18n="nav_login">Se connecter</a>
+    <a href="app.html" class="btn-nav-cta" id="navCtaBtn" data-i18n="nav_signup">Créer un compte</a>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" data-i18n="nav_home">Accueil</a><a href="a-propos.html" data-i18n="nav_about">À Propos</a><a href="services.html" data-i18n="nav_services">Services</a><a href="formations.html" data-i18n="nav_formations">Formations</a><a href="etudiants.html" data-i18n="nav_students">Étudiants</a><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a><a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <div class="mobile-actions"><a href="app.html" class="btn btn-outline" data-i18n="nav_login">Se connecter</a><a href="app.html" class="btn btn-primary" data-i18n="nav_signup">Créer un compte</a><button class="lang-btn" id="mobileLangBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button></div>
+</div>
+
+<div class="page-wrapper">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-label"><i class="fa-solid fa-envelope"></i> <span data-i18n="contact_page_tag">Contactez-nous</span></div>
+      <h1 class="page-hero-title" data-i18n="contact_page_title">Nous contacter</h1>
+      <p class="page-hero-sub" data-i18n="contact_page_sub">Une question, un projet de recrutement, une demande de formation ? Notre équipe répond sous 24h.</p>
+      <div class="breadcrumb"><a href="index.html" data-i18n="nav_home">Accueil</a><span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span><span data-i18n="nav_contact">Contact</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+      <div class="contact-grid">
+
+        <!-- INFOS -->
+        <div>
+          <div class="contact-info-card fade-in">
+            <div class="contact-info-title" data-i18n="contact_page_title">Nos coordonnées</div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="contact-info-label" data-i18n="contact_address_label">Adresse</div>
+                <div class="contact-info-val" data-i18n="contact_address_val">Sacré-Cœur 3, VDN, Dakar, Sénégal</div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <div class="contact-info-label" data-i18n="contact_phone_label">Téléphone</div>
+                <div class="contact-info-val"><a href="tel:+221774041878" style="color:inherit">+221 77 404 18 78</a></div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="contact-info-label" data-i18n="contact_email_label">Email</div>
+                <div class="contact-info-val"><a href="mailto:ousseynoumail@gmail.com" style="color:inherit">ousseynoumail@gmail.com</a></div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-solid fa-clock"></i></div>
+              <div>
+                <div class="contact-info-label" data-i18n="contact_hours_label">Horaires</div>
+                <div class="contact-info-val" data-i18n="contact_hours_val">Lun–Ven : 8h–18h · Sam : 9h–13h</div>
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <div class="contact-info-label">WhatsApp</div>
+                <div class="contact-info-val"><a href="https://wa.me/221774041878" style="color:inherit">+221 77 404 18 78</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="map-placeholder">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <span style="font-size:14px">Sacré-Cœur 3, VDN — Dakar, Sénégal</span>
+            <a href="https://maps.google.com/?q=Sacré-Coeur+3+VDN+Dakar+Senegal" target="_blank" class="btn btn-outline" style="margin-top:8px;font-size:12px"><i class="fa-solid fa-external-link"></i> Ouvrir dans Google Maps</a>
+          </div>
+        </div>
+
+        <!-- FORMULAIRE -->
+        <div class="contact-form-card fade-in fade-in-delay-1">
+          <div class="contact-form-title" data-i18n="contact_form_title">Envoyez-nous un message</div>
+          <form id="contactForm" onsubmit="submitContact(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" data-i18n="field_firstname">Prénom *</label>
+                <input type="text" class="form-input" id="cf_firstname" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-i18n="field_lastname">Nom *</label>
+                <input type="text" class="form-input" id="cf_lastname" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" data-i18n="field_email">Email *</label>
+                <input type="email" class="form-input" id="cf_email" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" data-i18n="field_phone">Téléphone</label>
+                <input type="tel" class="form-input" id="cf_phone" placeholder="+221 77 ...">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="field_subject">Objet *</label>
+              <select class="form-input form-select" id="cf_subject" required>
+                <option value="" data-i18n="field_subject_placeholder">Choisissez un objet</option>
+                <option value="formation" data-i18n="subject_formation">Demande de formation</option>
+                <option value="recrutement" data-i18n="subject_recruitment">Recrutement</option>
+                <option value="partenariat" data-i18n="subject_partnership">Partenariat</option>
+                <option value="autre" data-i18n="subject_other">Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" data-i18n="field_message">Votre message *</label>
+              <textarea class="form-textarea" id="cf_message" rows="5" required placeholder="Décrivez votre demande en détail..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block btn-lg">
+              <i class="fa-solid fa-paper-plane"></i>
+              <span data-i18n="btn_send">Envoyer le message</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="alt-section">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title">Questions fréquentes</h2>
+      </div>
+      <div style="max-width:720px;margin:0 auto">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">Combien coûtent les formations SUNU ? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-a">Nos formations vont de 80 000 F CFA (Bureautique) à 180 000 F CFA (Management GRC). Des facilités de paiement sont possibles sur demande. Contactez-nous pour discuter de votre situation.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">Puis-je m'inscrire sans expérience en GRC ? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-a">Absolument ! Nos formations débutant sont spécialement conçues pour les personnes sans expérience. Nous vous accompagnons pas à pas jusqu'à votre premier emploi.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">Combien de temps dure le processus de recrutement ? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-a">Pour les entreprises, nous présentons 3 profils qualifiés sous 72h après validation du besoin. Pour les candidats, le délai de placement varie entre 2 et 8 semaines selon le marché.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">Les formations sont-elles en présentiel ou en ligne ? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-a">Nos formations se déroulent en présentiel dans nos locaux à Dakar (Sacré-Cœur 3, VDN). Nous travaillons sur une offre en ligne pour les candidats en dehors de Dakar.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFAQ(this)">Comment valider mon compte après inscription ? <i class="fa-solid fa-chevron-down"></i></div>
+          <div class="faq-a">Après votre inscription sur notre plateforme, votre compte est examiné par notre équipe et validé sous 48h. Vous recevrez une confirmation et pourrez alors accéder à toutes les fonctionnalités.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title" data-i18n="cta_title">Prêt à booster votre carrière ?</h2>
+      <p class="cta-sub" data-i18n="cta_sub">Rejoignez des centaines de candidats qui ont déjà fait confiance à SUNU.</p>
+      <div class="cta-btns">
+        <a href="app.html" class="btn-cta-primary"><i class="fa-solid fa-user-plus"></i> <span data-i18n="cta_btn_primary">Créer mon compte</span></a>
+        <a href="formations.html" class="btn-cta-secondary"><i class="fa-solid fa-graduation-cap"></i> <span data-i18n="cta_btn_secondary">Voir les formations</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand"><div class="nav-logo" style="margin-bottom:14px"><img src="images/logo-sunu.png" alt="SUNU" width="36" height="36"><div><div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div><div class="nav-logo-sub">Excellence in Training</div></div></div><p class="footer-desc" data-i18n="footer_tagline">Cabinet de recrutement et de formation spécialisé en GRC à Dakar, Sénégal.</p><div class="footer-social"><a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+    <div><div class="footer-col-title" data-i18n="footer_nav">Navigation</div><ul class="footer-links"><li><a href="index.html" data-i18n="nav_home">Accueil</a></li><li><a href="a-propos.html" data-i18n="nav_about">À Propos</a></li><li><a href="services.html" data-i18n="nav_services">Services</a></li><li><a href="etudiants.html" data-i18n="nav_students">Étudiants</a></li><li><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a></li></ul></div>
+    <div><div class="footer-col-title" data-i18n="footer_formations_col">Formations</div><ul class="footer-links"><li><a href="formations.html">GRC</a></li><li><a href="formations.html">GRC & Networking</a></li><li><a href="formations.html">CRM & Digital</a></li><li><a href="formations.html">Service Client</a></li><li><a href="formations.html">Management GRC</a></li></ul></div>
+    <div><div class="footer-col-title" data-i18n="footer_contact_col">Contact</div><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span data-i18n="contact_address_val">Sacré-Cœur 3, VDN, Dakar, Sénégal</span></div><div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+221 77 404 18 78</span></div><div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>ousseynoumail@gmail.com</span></div></div>
+  </div>
+  <div class="footer-bottom"><span data-i18n="footer_copyright">© 2025 SUNU Training Center. Tous droits réservés.</span><a href="#" data-i18n="footer_legal">Mentions légales</a></div>
+</footer>
+<div class="pwa-banner hidden" id="pwaBanner"><div class="pwa-banner-icon">📱</div><div class="pwa-banner-text"><div class="pwa-banner-title" data-i18n="pwa_title">Installer l'application</div><div class="pwa-banner-sub" data-i18n="pwa_sub">Ajoutez SUNU à votre écran d'accueil</div></div><div class="pwa-banner-actions"><button class="pwa-install-btn" onclick="installPWA()" data-i18n="pwa_install">Installer</button><button class="pwa-dismiss-btn" onclick="dismissPWA()" data-i18n="pwa_dismiss">Plus tard</button></div></div>
+<div class="toast-stack" id="toastStack"></div>
+<script src="vitrine/js/vitrine.js"></script>
+<script>
+function toggleFAQ(el) {
+  el.closest('.faq-item').classList.toggle('open');
+}
+</script>
+</body>
+</html>

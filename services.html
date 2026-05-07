@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services · SUNU Training Center</title>
+<meta name="description" content="Intérim Expert, Management de Transition, Pré-embauche — les 3 formules SUNU Training Center.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1E5AAE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="vitrine/css/style.css">
+<style>
+.service-big-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:40px;
+  display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;
+  margin-bottom:24px;transition:all 0.25s;
+}
+.service-big-card:hover{box-shadow:var(--shadow-lg);border-color:var(--orange)}
+.service-num{
+  font-family:var(--font-display);font-size:56px;
+  color:var(--orange-light);font-weight:400;
+  line-height:1;letter-spacing:-2px;
+  min-width:70px;
+}
+.service-big-title{font-size:22px;font-weight:700;color:var(--blue);margin-bottom:10px}
+.service-big-desc{font-size:15px;color:var(--text-soft);line-height:1.7;margin-bottom:18px}
+.service-features{list-style:none}
+.service-features li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--text);padding:6px 0;border-bottom:1px solid var(--border-soft)}
+.service-features li:last-child{border-bottom:none}
+.service-features li i{color:var(--orange);font-size:12px;flex-shrink:0}
+.adv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.adv-item{display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius)}
+.adv-icon{width:42px;height:42px;border-radius:10px;background:var(--orange-light);color:var(--orange);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.adv-title{font-size:14.5px;font-weight:600;color:var(--blue);margin-bottom:4px}
+.adv-desc{font-size:13px;color:var(--text-soft);line-height:1.55}
+@media(max-width:640px){.service-big-card{grid-template-columns:1fr}.service-num{font-size:36px}}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo-sunu.png" alt="SUNU logo" width="42" height="42">
+    <div><div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div><div class="nav-logo-sub">Excellence in Training</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="a-propos.html" data-i18n="nav_about">À Propos</a></li>
+    <li><a href="services.html" data-i18n="nav_services" class="active">Services</a></li>
+    <li><a href="formations.html" data-i18n="nav_formations">Formations</a></li>
+    <li><a href="etudiants.html" data-i18n="nav_students">Étudiants</a></li>
+    <li><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a></li>
+    <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button>
+    <a href="app.html" class="btn-nav-login" id="navLoginBtn" data-i18n="nav_login">Se connecter</a>
+    <a href="app.html" class="btn-nav-cta" id="navCtaBtn" data-i18n="nav_signup">Créer un compte</a>
+  </div>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" data-i18n="nav_home">Accueil</a>
+  <a href="a-propos.html" data-i18n="nav_about">À Propos</a>
+  <a href="services.html" data-i18n="nav_services">Services</a>
+  <a href="formations.html" data-i18n="nav_formations">Formations</a>
+  <a href="etudiants.html" data-i18n="nav_students">Étudiants</a>
+  <a href="partenaires.html" data-i18n="nav_partners">Partenaires</a>
+  <a href="contact.html" data-i18n="nav_contact">Contact</a>
+  <div class="mobile-actions">
+    <a href="app.html" class="btn btn-outline" data-i18n="nav_login">Se connecter</a>
+    <a href="app.html" class="btn btn-primary" data-i18n="nav_signup">Créer un compte</a>
+    <button class="lang-btn" id="mobileLangBtn" onclick="toggleLang()"><span class="lang-flag">🇸🇦</span> عربي</button>
+  </div>
+</div>
+
+<div class="page-wrapper">
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="page-hero-label"><i class="fa-solid fa-briefcase"></i> <span data-i18n="services_page_tag">Nos formules</span></div>
+      <h1 class="page-hero-title" data-i18n="services_page_title">Nos Services</h1>
+      <p class="page-hero-sub" data-i18n="services_page_sub">SUNU Training Center propose trois formules de recrutement adaptées à vos besoins.</p>
+      <div class="breadcrumb">
+        <a href="index.html" data-i18n="nav_home">Accueil</a>
+        <span class="breadcrumb-sep"><i class="fa-solid fa-chevron-right"></i></span>
+        <span data-i18n="nav_services">Services</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 FORMULES -->
+  <section>
+    <div class="section-inner">
+      <div class="service-big-card fade-in">
+        <div class="service-num">01</div>
+        <div>
+          <div class="service-big-title" data-i18n="s1_title">Intérim Expert</div>
+          <p class="service-big-desc" data-i18n="s1_desc">Des profils GRC qualifiés disponibles rapidement pour vos missions temporaires. Contrats flexibles de 1 à 12 mois.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Prise de poste sous 72h</li>
+            <li><i class="fa-solid fa-check"></i> Profils testés et certifiés SUNU</li>
+            <li><i class="fa-solid fa-check"></i> Remplacement garanti en cas d'absence</li>
+            <li><i class="fa-solid fa-check"></i> Contrats 1 à 12 mois renouvelables</li>
+            <li><i class="fa-solid fa-check"></i> Gestion administrative complète</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:18px"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_contact_us">Nous contacter</span></a>
+        </div>
+      </div>
+
+      <div class="service-big-card fade-in">
+        <div class="service-num">02</div>
+        <div>
+          <div class="service-big-title" data-i18n="s2_title">Management de Transition</div>
+          <p class="service-big-desc" data-i18n="s2_desc">Des managers expérimentés pour piloter vos équipes GRC pendant les périodes de transformation.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Managers avec min. 5 ans d'expérience GRC</li>
+            <li><i class="fa-solid fa-check"></i> Diagnostic et plan d'action en 2 semaines</li>
+            <li><i class="fa-solid fa-check"></i> Pilotage des KPIs et reporting direction</li>
+            <li><i class="fa-solid fa-check"></i> Transfert de compétences aux équipes en place</li>
+            <li><i class="fa-solid fa-check"></i> Mission de 3 à 18 mois</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:18px"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_contact_us">Nous contacter</span></a>
+        </div>
+      </div>
+
+      <div class="service-big-card fade-in">
+        <div class="service-num">03</div>
+        <div>
+          <div class="service-big-title" data-i18n="s3_title">Pré-embauche</div>
+          <p class="service-big-desc" data-i18n="s3_desc">Testez nos candidats pendant 3 mois avant de les recruter définitivement. Zéro risque.</p>
+          <ul class="service-features">
+            <li><i class="fa-solid fa-check"></i> Période d'essai de 3 mois prise en charge par SUNU</li>
+            <li><i class="fa-solid fa-check"></i> Suivi hebdomadaire du candidat et de l'entreprise</li>
+            <li><i class="fa-solid fa-check"></i> Évaluation des performances objectivée</li>
+            <li><i class="fa-solid fa-check"></i> Recrutement définitif si satisfaction mutuelle</li>
+            <li><i class="fa-solid fa-check"></i> Zéro frais si la collaboration ne se poursuit pas</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:18px"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_contact_us">Nous contacter</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSUS -->
+  <section class="alt-section">
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag" data-i18n="process_title">Notre Processus</span>
+        <h2 class="section-title">Comment ça marche ?</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step fade-in">
+          <div class="process-num">1</div>
+          <div class="process-title" data-i18n="process_1">Analyse du besoin</div>
+          <div class="process-desc" data-i18n="process_1_desc">Nous étudions votre besoin et votre culture d'entreprise.</div>
+        </div>
+        <div class="process-step fade-in fade-in-delay-1">
+          <div class="process-num">2</div>
+          <div class="process-title" data-i18n="process_2">Sélection</div>
+          <div class="process-desc" data-i18n="process_2_desc">Sélection rigoureuse sur tests techniques et comportementaux.</div>
+        </div>
+        <div class="process-step fade-in fade-in-delay-2">
+          <div class="process-num">3</div>
+          <div class="process-title" data-i18n="process_3">Présentation</div>
+          <div class="process-desc" data-i18n="process_3_desc">Nous vous présentons 3 profils qualifiés sous 72h.</div>
+        </div>
+        <div class="process-step fade-in fade-in-delay-3">
+          <div class="process-num">4</div>
+          <div class="process-title" data-i18n="process_4">Suivi</div>
+          <div class="process-desc" data-i18n="process_4_desc">Accompagnement pendant toute la durée de la mission.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVANTAGES -->
+  <section>
+    <div class="section-inner">
+      <div class="section-header center">
+        <span class="section-tag" data-i18n="advantages_title">Pourquoi choisir SUNU ?</span>
+        <h2 class="section-title">Nos avantages concurrentiels</h2>
+      </div>
+      <div class="adv-grid">
+        <div class="adv-item fade-in">
+          <div class="adv-icon"><i class="fa-solid fa-bolt"></i></div>
+          <div><div class="adv-title" data-i18n="adv_1">Formations pratiques et orientées résultats</div><div class="adv-desc">Chaque profil est testé sur des cas réels avant présentation.</div></div>
+        </div>
+        <div class="adv-item fade-in fade-in-delay-1">
+          <div class="adv-icon"><i class="fa-solid fa-users"></i></div>
+          <div><div class="adv-title" data-i18n="adv_2">Formateurs expérimentés issus du terrain</div><div class="adv-desc">Nos formateurs ont travaillé dans les plus grandes entreprises africaines.</div></div>
+        </div>
+        <div class="adv-item fade-in fade-in-delay-2">
+          <div class="adv-icon"><i class="fa-solid fa-globe-africa"></i></div>
+          <div><div class="adv-title" data-i18n="adv_3">Adaptées au marché sénégalais et africain</div><div class="adv-desc">Connaissance profonde des contextes culturels et professionnels locaux.</div></div>
+        </div>
+        <div class="adv-item fade-in fade-in-delay-3">
+          <div class="adv-icon"><i class="fa-solid fa-certificate"></i></div>
+          <div><div class="adv-title" data-i18n="adv_4">Attestation de formation reconnue</div><div class="adv-desc">Nos certifications sont reconnues par les RH des entreprises partenaires.</div></div>
+        </div>
+        <div class="adv-item fade-in">
+          <div class="adv-icon"><i class="fa-solid fa-handshake"></i></div>
+          <div><div class="adv-title" data-i18n="adv_5">Réseau de 30+ entreprises partenaires</div><div class="adv-desc">Accès immédiat à un vivier d'entreprises qui recrutent.</div></div>
+        </div>
+        <div class="adv-item fade-in fade-in-delay-1">
+          <div class="adv-icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div><div class="adv-title" data-i18n="adv_6">Suivi post-placement individualisé</div><div class="adv-desc">Nous ne nous arrêtons pas au placement : nous suivons l'intégration.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title" data-i18n="cta_title">Prêt à booster votre carrière ?</h2>
+      <p class="cta-sub" data-i18n="cta_sub">Rejoignez des centaines de candidats qui ont déjà fait confiance à SUNU.</p>
+      <div class="cta-btns">
+        <a href="app.html" class="btn-cta-primary"><i class="fa-solid fa-user-plus"></i> <span data-i18n="cta_btn_primary">Créer mon compte</span></a>
+        <a href="contact.html" class="btn-cta-secondary"><i class="fa-solid fa-envelope"></i> <span data-i18n="btn_contact_us">Nous contacter</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:14px"><img src="images/logo-sunu.png" alt="SUNU" width="36" height="36"><div><div class="nav-logo-text">SUNU <span class="or">TRAINING</span> CENTER</div><div class="nav-logo-sub">Excellence in Training</div></div></div>
+      <p class="footer-desc" data-i18n="footer_tagline">Cabinet de recrutement et de formation spécialisé en GRC à Dakar, Sénégal.</p>
+      <div class="footer-social"><a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a><a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a></div>
+    </div>
+    <div><div class="footer-col-title" data-i18n="footer_nav">Navigation</div><ul class="footer-links"><li><a href="index.html" data-i18n="nav_home">Accueil</a></li><li><a href="a-propos.html" data-i18n="nav_about">À Propos</a></li><li><a href="services.html" data-i18n="nav_services">Services</a></li><li><a href="etudiants.html" data-i18n="nav_students">Étudiants</a></li><li><a href="partenaires.html" data-i18n="nav_partners">Partenaires</a></li></ul></div>
+    <div><div class="footer-col-title" data-i18n="footer_formations_col">Formations</div><ul class="footer-links"><li><a href="formations.html">GRC</a></li><li><a href="formations.html">GRC & Networking</a></li><li><a href="formations.html">CRM & Digital</a></li><li><a href="formations.html">Service Client</a></li><li><a href="formations.html">Management GRC</a></li></ul></div>
+    <div><div class="footer-col-title" data-i18n="footer_contact_col">Contact</div><div class="footer-contact-item"><i class="fa-solid fa-location-dot"></i><span data-i18n="contact_address_val">Sacré-Cœur 3, VDN, Dakar, Sénégal</span></div><div class="footer-contact-item"><i class="fa-solid fa-phone"></i><span>+221 77 404 18 78</span></div><div class="footer-contact-item"><i class="fa-solid fa-envelope"></i><span>ousseynoumail@gmail.com</span></div></div>
+  </div>
+  <div class="footer-bottom"><span data-i18n="footer_copyright">© 2025 SUNU Training Center. Tous droits réservés.</span><a href="#" data-i18n="footer_legal">Mentions légales</a></div>
+</footer>
+<div class="pwa-banner hidden" id="pwaBanner"><div class="pwa-banner-icon">📱</div><div class="pwa-banner-text"><div class="pwa-banner-title" data-i18n="pwa_title">Installer l'application</div><div class="pwa-banner-sub" data-i18n="pwa_sub">Ajoutez SUNU à votre écran d'accueil</div></div><div class="pwa-banner-actions"><button class="pwa-install-btn" onclick="installPWA()" data-i18n="pwa_install">Installer</button><button class="pwa-dismiss-btn" onclick="dismissPWA()" data-i18n="pwa_dismiss">Plus tard</button></div></div>
+<div class="toast-stack" id="toastStack"></div>
+<script src="vitrine/js/vitrine.js"></script>
+</body>
+</html>
