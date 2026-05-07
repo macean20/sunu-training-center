@@ -845,6 +845,77 @@ section{padding:80px 5%}
   .pwa-banner-actions{width:100%;justify-content:center}
 }
 
+/* ========== ILLUSTRATIONS / AVATARS ========== */
+.illus-wrap{
+  border-radius:var(--radius-lg);
+  background:linear-gradient(135deg,var(--blue-light) 0%,#EAF3FF 50%,var(--orange-light) 100%);
+  border:1px solid var(--border);
+  aspect-ratio:4/3;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+  padding:32px;
+}
+.illus-wrap::before{
+  content:'';position:absolute;
+  width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,107,53,0.12) 0%,transparent 70%);
+  top:-60px;right:-60px;pointer-events:none;
+}
+.illus-wrap::after{
+  content:'';position:absolute;
+  width:160px;height:160px;border-radius:50%;
+  background:radial-gradient(circle,rgba(30,90,174,0.08) 0%,transparent 70%);
+  bottom:-40px;left:-40px;pointer-events:none;
+}
+.av-cluster{
+  display:flex;flex-wrap:wrap;
+  gap:14px;justify-content:center;align-items:center;
+  position:relative;z-index:1;
+  max-width:260px;
+}
+.av{
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:white;font-weight:600;
+  border:3px solid white;
+  box-shadow:0 4px 14px rgba(0,0,0,0.18);
+  flex-shrink:0;transition:transform 0.3s;
+}
+.av:hover{transform:scale(1.08)}
+.av-sm{width:54px;height:54px;font-size:18px}
+.av-md{width:70px;height:70px;font-size:22px}
+.av-lg{width:88px;height:88px;font-size:28px}
+.av-blue{background:linear-gradient(135deg,var(--blue),var(--blue-dark))}
+.av-orange{background:linear-gradient(135deg,var(--orange),var(--orange-dark))}
+.av-teal{background:linear-gradient(135deg,#0D9488,#0F766E)}
+.av-purple{background:linear-gradient(135deg,#7C3AED,#5B21B6)}
+.av-green{background:linear-gradient(135deg,#10B981,#059669)}
+.av-amber{background:linear-gradient(135deg,#F59E0B,#D97706)}
+.illus-badge{
+  position:absolute;bottom:18px;left:50%;transform:translateX(-50%);
+  background:white;border:1px solid var(--border);
+  border-radius:99px;padding:7px 16px;
+  display:flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:600;color:var(--blue);
+  box-shadow:var(--shadow-lg);white-space:nowrap;z-index:2;
+}
+.illus-badge i{color:var(--orange)}
+.illus-badge-top{
+  position:absolute;top:18px;right:18px;
+  background:var(--orange);color:white;
+  border-radius:99px;padding:5px 14px;
+  font-size:12px;font-weight:600;z-index:2;
+}
+
+/* Illustration type : business/partenaires */
+.illus-business{
+  background:linear-gradient(135deg,#EEF2FF 0%,#E0F2FE 100%);
+}
+/* Illustration type : education/formations */
+.illus-edu{
+  background:linear-gradient(135deg,var(--orange-light) 0%,#FFF7ED 100%);
+}
+
 /* ========== RTL OVERRIDES ========== */
 body.rtl .nav-links{flex-direction:row-reverse}
 body.rtl .process-step::after{
