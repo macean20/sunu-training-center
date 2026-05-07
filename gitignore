@@ -1,0 +1,23 @@
+# Système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Dossiers temporaires
+tmp/
+temp/
+node_modules/
+
+# Build (si jamais on en ajoute)
+dist/
+build/
