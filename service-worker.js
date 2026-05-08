@@ -3,7 +3,7 @@
    Cache les pages vitrine pour usage hors ligne
    ====================================================== */
 
-const CACHE_NAME = 'sunu-vitrine-v1';
+const CACHE_NAME = 'sunu-vitrine-v2';
 
 const ASSETS_TO_CACHE = [
   '/',
@@ -18,6 +18,8 @@ const ASSETS_TO_CACHE = [
   '/vitrine/css/style.css',
   '/vitrine/js/vitrine.js',
   '/images/logo-sunu.png',
+  '/images/flyer-sunu.jpeg',
+  '/images/carte-sunu.jpeg',
   '/manifest.json'
 ];
 
